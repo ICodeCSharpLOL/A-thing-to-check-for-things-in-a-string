@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <body>
-<p id="testing"> Input some text and it will check for somwthing in the text</p>
-<p id="output"> hi </p>
+<p id="testing"> Input some text and it will check for somwthing in the text <br>Or replace some text</p>
+<p id="output"> stuff goes here </p>
 
 <form>
   <label id="idk"for="quantity">TEXT:</label>
   <input type="text" id="text" name="quantity" value="TEXT">
-<label for="quantity"><br>What to check for:</label>
+<label for="quantity"><br>What to check/replace for:</label>
   <input type="text" id="check" name="quantity" value="STUFF">
+  <label for="quantity"><br>What to replace with:</label>
+  <input type="text" id="replace" name="quantity" value="STUFF">
 </form>
 </form>
 <br><button onclick="button()">Check Text</button>
+<br><br><button onclick="button2()">Replace Text</button>
 
 
 
@@ -21,6 +24,15 @@ function button() {
 let text = document.getElementById("text").value;
 let check = document.getElementById("check").value;
 document.getElementById("output").innerHTML =  text.indexOf(check);
+if (text.indexOf(check) == "-1") {
+document.getElementById("output").innerHTML = "NULL";
+}
+}
+function button2() {
+let text = document.getElementById("text").value;
+let check = document.getElementById("check").value;
+let replace = document.getElementById("replace").value;
+document.getElementById("output").innerHTML =  text.replace(check, replace);
 }
 
 </script>
